@@ -11,6 +11,10 @@ Route::get('/picture/{date}', [Dailypicture::class, 'show'])->name('picture.show
 Route::get('/trigger-500', function () {
     throw new \Exception('This is a simulated server error.');
 });
+//Route::group(['scheme' => 'https'], function () {
+//    // Route::get(...)->name(...);
+//});
+
 
 
 
