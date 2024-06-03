@@ -7,60 +7,101 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## NASA API Testing
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Part 1: Test Plan
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+#### User Stories
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**User Story 1: Viewing Daily Pictures**
+- **Description**: As a user, I want to view pictures of the day from NASA so that I can see recent astronomical images.
+- **Happy Path**: The user successfully views the images for the last 4 days.
+- **Unhappy Path**: The NASA API fails to return images.
 
-## Learning Laravel
+**User Story 2: Viewing Picture Details**
+- **Description**: As a user, I want to view details of a specific picture so that I can learn more about it.
+- **Happy Path**: The user successfully views the details of a picture for a given date.
+- **Unhappy Path**: The NASA API fails to return details for the given date.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### System Tests
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+**User Story 1: Viewing Daily Pictures**
+- **Scenario**: The API returns images successfully.
+  - **Test**: Verify that the images are displayed on the page.
+- **Scenario**: The API fails to return images.
+  - **Test**: Verify that an error message is displayed.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**User Story 2: Viewing Picture Details**
+- **Scenario**: The API returns details successfully.
+  - **Test**: Verify that the picture details are displayed on the page.
+- **Scenario**: The API fails to return details.
+  - **Test**: Verify that an error message is displayed.
 
-## Laravel Sponsors
+### Unit Tests
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+**User Story 1: Viewing Daily Pictures**
+- **Functionality**: Fetch images from the NASA API for the last 4 days.
+  - **Test**: Ensure the function correctly formats the API request and handles the response.
 
-### Premium Partners
+**User Story 2: Viewing Picture Details**
+- **Functionality**: Fetch details of a specific picture from the NASA API.
+  - **Test**: Ensure the function correctly formats the API request and handles the response.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Part 2: Applying the V-Model
 
-## Contributing
+**User Story 1: Viewing Daily Pictures**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### System Test (Happy Path)
+- **Description**: Verify that the images for the last 4 days are displayed correctly.
+- **Test Steps**:
+  1. Navigate to the daily pictures page.
+  2. Check that 4 images are displayed.
+  3. Verify the date and title for each image.
 
-## Code of Conduct
+#### System Test (Unhappy Path)
+- **Description**: Verify that an error message is displayed when the API fails.
+- **Test Steps**:
+  1. Simulate an API failure.
+  2. Navigate to the daily pictures page.
+  3. Check that an error message is displayed.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### Unit Test
+- **Function**: fetchDailyPictures
+  - **Test**: Ensure the function sends the correct API request and processes the response correctly.
 
-## Security Vulnerabilities
+**User Story 2: Viewing Picture Details**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### System Test (Happy Path)
+- **Description**: Verify that the picture details for a given date are displayed correctly.
+- **Test Steps**:
+  1. Navigate to the picture details page for a specific date.
+  2. Check that the picture details are displayed.
+  3. Verify the title, date, and description.
 
-## License
+#### System Test (Unhappy Path)
+- **Description**: Verify that an error message is displayed when the API fails.
+- **Test Steps**:
+  1. Simulate an API failure.
+  2. Navigate to the picture details page for a specific date.
+  3. Check that an error message is displayed.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### Unit Test
+- **Function**: fetchPictureDetails
+  - **Test**: Ensure the function sends the correct API request and processes the response correctly.
+
+### Part 3: Screenshot of Completed Tests
+![image](https://github.com/GabriellaKhayutin1/NasaApi/assets/144113555/c4f14d5f-2e89-4bf2-9767-32d90f5d4b27)
+
+### Part 4: Evaluation
+
+**Possible Mistake/Error Detected by my Tests**
+- **Description**: A possible error that can be detected by the tests is the API failing to return data, which would result in an error message being displayed instead of the expected images or details.
+
+**Possible Mistake/Error Not Detected by my Tests**
+- **Description**: A possible error that cannot be detected by the tests is an intermittent network issue that occurs randomly and does not consistently affect the API requests. This would require more extensive monitoring and logging to detect.
+
+**Conclusion: To What Extent Can You Conclude That "Everything Works Correctly"?**
+- **Arguments**:
+  - The tests provide a good level of confidence that the main functionalities (viewing daily pictures and picture details) are working correctly under expected conditions.
+  - They also handle common failure scenarios such as API failures.
+  - However, the tests do not cover all possible edge cases or performance issues. Continuous monitoring, logging, and additional tests for edge cases and load testing would be necessary to conclude that everything works correctly under all conditions.
