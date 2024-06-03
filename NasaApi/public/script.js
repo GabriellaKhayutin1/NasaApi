@@ -8,11 +8,6 @@ function myFunction() {
 }
 
 let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
 
 function showSlides(n) {
     let i;
@@ -20,7 +15,27 @@ function showSlides(n) {
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+        slides[i].classList.add("hidden");
+        slides[i].classList.remove("block");
     }
-    slides[slideIndex-1].style.display = "block";
+    slides[slideIndex-1].classList.add("block");
+    slides[slideIndex-1].classList.remove("hidden");
 }
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    showSlides(slideIndex);
+    document.querySelector(".prev").addEventListener("click", function() {
+        plusSlides(-1);
+    });
+    document.querySelector(".next").addEventListener("click", function() {
+        plusSlides(1);
+    });
+
+    setInterval(function() {
+        plusSlides(1);
+    }, 5000); // Change slide every 5 seconds
+});
