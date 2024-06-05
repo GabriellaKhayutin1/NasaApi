@@ -90,10 +90,10 @@ Part 3: Screenshot of Completed Tests:
 Part 4: Evaluation
 Possible Mistake/Error Detected by My Tests
 
-Description: A possible error that can be detected by the tests is the API failing to return data, which would result in an error message being displayed instead of the expected images or details.
+1. A possible error that can be detected by the tests is the API failing to return data, which would result in an error message being displayed instead of the expected images or details.
 Possible Mistake/Error Not Detected by My Tests
 
-Description: A possible error that cannot be detected by the tests is an intermittent network issue that occurs randomly and does not consistently affect the API requests. This would require more extensive monitoring and logging to detect.
+2. A possible error that cannot be detected by the tests is an intermittent network issue that occurs randomly and does not consistently affect the API requests. This would require more extensive monitoring and logging to detect.
 Conclusion: To What Extent Can You Conclude That "Everything Works Correctly"?
 
 My arguments:
