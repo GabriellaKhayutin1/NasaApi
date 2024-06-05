@@ -7,6 +7,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+link to my hosted NasaApi from heroku: https://nasaapi1-485a941dd0d9.herokuapp.com/
+
 ## NASA API Testing
 
 ### Part 1: Test Plan
