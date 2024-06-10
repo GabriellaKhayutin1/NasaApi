@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Dailypicture;
 use Carbon\Carbon;
 
+class FetchNasaPicturesDetailsTest extends TestCase
 {
     public function testFetchPictureDetails()
     {
