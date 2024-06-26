@@ -38,4 +38,35 @@ document.addEventListener("DOMContentLoaded", function() {
     setInterval(function() {
         plusSlides(1);
     }, 5000); // Change slide every 5 seconds
+
+    // Example of concurrent AJAX requests
+    let urls = [
+        'https://api.example.com/data1',
+        'https://api.example.com/data2',
+        'https://api.example.com/data3'
+    ];
+
+    function fetchData(url) {
+        return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', url);
+            xhr.onload = () => {
+                if (xhr.status === 200) {
+                    resolve(xhr.responseText);
+                } else {
+                    reject(new Error(`Request failed with status ${xhr.status}`));
+                }
+            };
+            xhr.send();
+        });
+    }
+
+    Promise.all(urls.map(fetchData))
+        .then(responses => {
+            console.log('All data fetched:', responses);
+            // Handle the responses
+        })
+        .catch(error => {
+            console.error('One or more requests failed:', error);
+        });
 });

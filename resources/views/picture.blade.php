@@ -20,11 +20,11 @@
 </nav>
 
 <!-- Picture Details Section -->
-<main class="container mx-auto py-8">
+<main class="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
     @if(isset($image))
         <article class="picture-details bg-white shadow-md rounded-lg overflow-hidden">
             <figure>
-                <img src="{{ $image['url'] }}" alt="{{ $image['title'] }}" class="w-full">
+                <img src="{{ $image['url'] }}" alt="{{ $image['title'] }}" class="w-full object-cover">
                 <figcaption class="p-4">
                     <h1 class="text-xl font-semibold mb-2">{{ $image['title'] }}</h1>
                     <p class="text-gray-600">{{ $image['date'] }}</p>

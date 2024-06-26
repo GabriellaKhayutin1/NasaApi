@@ -43,7 +43,7 @@
 
         <!-- Navigation arrows -->
         <button class="absolute left-0 top-1/2 transform -translate-y-1/2 prev text-white bg-gray-900 rounded-full px-4 py-2" aria-label="Previous slide" onclick="plusSlides(-1)">&#10094;</button>
-        <button class="absolute right-0 top-1/2 transform -translate-y-1/2 next text-white bg-gray-900 rounded-full px-4 py-2" aria-label="Next slide" onclick="plusSlides(1)">&#10095;</button>
+        <button class="absolute right-0 top-1/2 transform -translate-y-1/2 next text-white bg-gray-900 rounded-full px-4 py-2" aria-label="Next slide" onclick="plusSlides(1)">&#10094;</button>
     </section>
 </main>
 
